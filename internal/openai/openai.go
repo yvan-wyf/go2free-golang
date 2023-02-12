@@ -37,6 +37,7 @@ type ChatResponse struct {
 	} `json:"usage"`
 }
 
+// openai`s api for Q&A, only support EN
 func ChatAPI(question string) ChatResponse {
 	host := "https://api.openai.com/v1/completions"
 
