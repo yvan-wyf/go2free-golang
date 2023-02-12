@@ -34,12 +34,12 @@ func main() {
 
 		resp := openai.ChatAPI(json.Question)
 
-		if len(resp.Choices) == 0 {
-			c.JSON(http.StatusOK, gin.H{"success": false})
+		if resp.Choices == nil || len(resp.Choices) == 0 {
+			c.JSON(http.StatusOK, gin.H{"success": false, "answer": "抱歉，无法回答你的问题"})
 		}
 
 		answer := resp.Choices[0].Text
-		c.JSON(http.StatusOK, gin.H{"status": "200", "answer": answer})
+		c.JSON(http.StatusOK, gin.H{"success": true, "answer": answer})
 	})
 	// 3.监听端口，默认在8080
 	// Run("里面不指定端口号默认为8080")
