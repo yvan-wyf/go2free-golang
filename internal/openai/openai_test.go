@@ -3,5 +3,5 @@ package openai
 import "testing"
 
 func TestChatAPI(t *testing.T) {
-	ChatAPI()
+	ChatAPI("What can you do?")
 }
