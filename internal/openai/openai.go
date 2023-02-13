@@ -12,7 +12,7 @@ import (
 type OpenAIRequest struct {
 	Model            string   `json:"model"`
 	Prompt           string   `json:"prompt"`
-	Temperature      int      `json:"temperature"`
+	Temperature      float64  `json:"temperature"`
 	MaxTokens        int      `json:"max_tokens"`
 	TopP             int      `json:"top_p"`
 	FrequencyPenalty float64  `json:"frequency_penalty"`
@@ -44,13 +44,13 @@ func ChatAPI(question string) ChatResponse {
 
 	params := OpenAIRequest{
 		Model:            "text-davinci-003",
-		Prompt:           "Q:" + question + " \n" + " A:",
-		Temperature:      0,
-		MaxTokens:        100,
+		Prompt:           "Human:" + question + " \n" + " AI:",
+		Temperature:      0.9,
+		MaxTokens:        150,
 		TopP:             1,
 		FrequencyPenalty: 0.0,
-		PresencePenalty:  0.0,
-		Stop:             []string{"\n"},
+		PresencePenalty:  0.6,
+		Stop:             []string{" Human:", " AI:"},
 	}
 	jsons, _ := json.Marshal(params)
 	println("request:", string(jsons))
