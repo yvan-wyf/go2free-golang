@@ -42,8 +42,8 @@ func ChatAPI(question string) ChatResponse {
 	host := "https://api.openai.com/v1/completions"
 
 	params := OpenAIRequest{
-		Model:            "text-davinci-003",
-		Prompt:           "Q:" + question + "\n" + " A:",
+		Model:            "text-davinci-002",
+		Prompt:           "Q:" + question + " \n" + " A:",
 		Temperature:      0,
 		MaxTokens:        100,
 		TopP:             1,
@@ -65,7 +65,7 @@ func ChatAPI(question string) ChatResponse {
 
 	// 设置HTTP请求的header
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Authorization", "Bearer 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")
+	req.Header.Set("Authorization", "Bearer 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")
 	resp, err := client.Do(req)
 	if err != nil {
 		// handle error

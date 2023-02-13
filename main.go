@@ -36,6 +36,7 @@ func main() {
 
 		if resp.Choices == nil || len(resp.Choices) == 0 {
 			c.JSON(http.StatusOK, gin.H{"success": false, "answer": "抱歉，无法回答你的问题"})
+			return
 		}
 
 		answer := resp.Choices[0].Text
