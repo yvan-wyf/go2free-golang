@@ -46,7 +46,7 @@ func ChatAPI(question string) ChatResponse {
 		Model:            "text-davinci-003",
 		Prompt:           "Human:" + question + " \n" + " AI:",
 		Temperature:      0.9,
-		MaxTokens:        4000,
+		MaxTokens:        500,
 		TopP:             1,
 		FrequencyPenalty: 0.0,
 		PresencePenalty:  0.6,
