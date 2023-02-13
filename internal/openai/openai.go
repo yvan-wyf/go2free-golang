@@ -42,7 +42,7 @@ func ChatAPI(question string) ChatResponse {
 	host := "https://api.openai.com/v1/completions"
 
 	params := OpenAIRequest{
-		Model:            "text-davinci-002",
+		Model:            "text-davinci-003",
 		Prompt:           "Q:" + question + " \n" + " A:",
 		Temperature:      0,
 		MaxTokens:        100,
